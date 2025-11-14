@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            background-color: goldenrod;
+            width:100px;
+            height:100px;
+            border-radius: 15px;
+            transform:rotate(15deg);
+        }
+
+    </style>
+    <script>
+        /* 
+            자바언어에서는 함수가 객체안에 소속되어 있기 때문에, 해당 객체의 동작을 제어하는 용도이므로,
+            함수라고 부르지 않고, 메서드라 한다.. 따라서 아래의 roll()은 어떠한 객체에도 포함되어 있지 않은
+            단독 함수영역이므로, 그냥 사용자 정의 함수라 한다.
+        */
+        let r = 0;  // 자바스크립트는 자료형이 없음.. but TypeScript는 자료형을 지원함
+        let n = 1;
+        
+        function roll(sign) {
+
+
+            // 문서내에 div라 불리는 태그요소의 CSS 중 transform: rotate() 값을 증가시키자!!
+            r += sign * 15;
+            // document.getElementById("box").style.transform = "rotate(" + r + "deg)";
+            n += sign * 1;
+            // 문자열 사이에 변수를 껴넣는 방식이 복잡할 경우, 템플릿 문자열을 이용할 수 있다.
+            document.getElementById("box").style.transform = `rotate(${r}deg)` ;
+            //document.getElementById("box").style.transform = `skewY(${n}deg)` ;
+
+
+        }
+
+        function rotateImage() {
+            const now = new Date();
+            const seconds = now.getSeconds();
+
+            const degree = seconds * 15;
+
+            document.getElementById("box").style.transform = `rotate(${degree}deg)` ;
+        }
+        rotateImage();
+    </script>
+</head>
+<body>
+    <!--
+        dividion의 약어로써, 화면을 분할하는 목적으로 지원되는 태그
+        사용빈도는 압도적
+    -->
+    
+    <div id = "box"></div>
+    <button onclick="roll(-1)">왼쪽으로 회전</button> <button onclick="roll(1)">오른쪽으로 회전</button>
+    <br>
+    <a href="javascript:roll()">돌리기</a>
+</body>
+</html>

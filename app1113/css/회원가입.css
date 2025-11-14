@@ -1,0 +1,25 @@
+/* 이 영역은 HTML이 아닌 CSS의 영역임. 따라서 주석 또한 다르다. */
+
+/*td를 대상으로 원하는 CSS 디자인 적용*/
+td {
+    font-size: 9px;
+    color: #12470e;
+    background-color: #bad472;
+}
+input {
+    background-color: rgb(216, 240, 149);
+    border: 2px solid #7aaf57;
+}
+textarea {
+    background-color: rgb(216, 240, 149);
+    border: 2px solid #7aaf57;
+    color: black
+}
+button {
+    background-color: rgb(216, 240, 149);
+    border: 2px solid #7aaf57;
+}
+select {
+    background-color: rgb(216, 240, 149);
+    border: 2px solid #7aaf57;
+}

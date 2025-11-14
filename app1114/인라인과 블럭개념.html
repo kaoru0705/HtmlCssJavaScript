@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /*
+            1)모든 태그 요소는 Box로 취급한다.
+            2)모든 태그 요소는 inline 이거나 block
+            block: 나와 같은 수평선 상의 그 어느 누구도 공존을 허락하지 않음..(욕심쟁이, 공간 혼자 차지)
+                    따라서 다른 요소를 줄바꿈 시켜버림..
+                    이런 현상이 발생하는 이유는? 화면 끝가지 100%로 너비가 늘어나 있기 때문이다.
+                                                    아니다. 크기를 줄여도 block 속성은 유지됨...(배척함)
+
+            inline: 자신이 보유한 content 만큼만 크기를 차지하며, 같은 수평선 상에 다른 요소들을 허용함.
+                    즉 자신이 보유한                                           
+        */
+        h1{
+            width: 200px;
+            background-color: blueviolet;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>난 제목 1</h1>
+    <button>나 버튼1</button>
+    <button>나 버튼2</button>
+
+    <p>문단1</p>
+    <button>나 버튼3</button>
+    <button>나 버튼4</button>
+
+    <div>영역1</div>
+    <div>영역2</div>
+
+</body>
+</html>
