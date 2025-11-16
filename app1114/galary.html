@@ -12,29 +12,6 @@
             background-color: aqua;
             margin: auto;
         }
-        /* .aside1{
-            width: 100px;
-            height: 600px;
-            float: left;
-        }
-        .aside2{
-            width: 600px;
-            height: 600px;
-            float: right;
-        }
-        .aside1 div{
-            width: 90px;
-            height: 600/9px;
-            color: black;
-            margin: 0px;
-        }
-        .aside2 content{
-            width: 600px;
-            height: 600px;
-            background-color: black;
-            clear:both;
-            float: right;
-        } */
         .aside{
             width: 100px;
             height: 100%;
@@ -61,17 +38,13 @@
             margin-top: 25px;
             width: 550px;
             height: 550px;
-            text-align: center;
+            text-align: center
         }
     </style>
 
     <script>
         //접근방법(selector)은 여러가지가 있음
         // .content img(후손 선택자), view(클래스 선택자)
-        function setImg(imageName) {
-            let content = document.querySelector(".content img");
-            content.src = `./images/geographic/${imageName}.jpg`;
-        }
         function setThisImg(path) {
             let content = document.querySelector(".content img");
             content.src = path;
@@ -79,32 +52,17 @@
     </script>
 </head>
 <body>
-    <!-- <div class="container">
-        <div class="aside1">
-            <div class="box" onmouseover="setImg('bear')">bear</div>
-            <div class="box" onmouseover="setImg('cosmos')">cosmos</div>
-            <div class="box" onmouseover="setImg('diver')">diver</div>
-            <div class="box" onmouseover="setImg('fish')">fish</div>
-            <div class="box" onmouseover="setImg('fox')">fox</div>
-            <div class="box" onmouseover="setImg('lion')">lion</div>
-            <div class="box" onmouseover="setImg('mouse')">mouse</div>
-            <div class="box" onmouseover="setImg('sunset')">sunset</div>
-            <div class="box" onmouseover="setImg('turtle')">turtle</div>
-        </div class = "aside2">
-        <img class = "content">
-        </div>
-    </div> -->
     <div class="container">
         <div class="aside">
-            <img src="./images/geographic/bear.jpg" alt="" class="thumb" onmouseover="setImg('bear')">
+            <img src="./images/geographic/bear.jpg" alt="" class="thumb" onmouseover="setThisImg(this.src)">
             <img src="./images/geographic/cosmos.jpg" alt="" class="thumb" onmouseover="setThisImg(this.src)">
-            <img src="./images/geographic/diver.jpg" alt="" class="thumb" onmouseover="setImg('diver')">
-            <img src="./images/geographic/fish.jpg" alt="" class="thumb" onmouseover="setImg('fish')">
-            <img src="./images/geographic/fox.jpg" alt="" class="thumb" onmouseover="setImg('fox')">
-            <img src="./images/geographic/lion.jpg" alt="" class="thumb" onmouseover="setImg('lion')">
-            <img src="./images/geographic/mouse.jpg" alt="" class="thumb" onmouseover="setImg('mouse')">
-            <img src="./images/geographic/sunset.jpg" alt="" class="thumb" onmouseover="setImg('sunset')">
-            <img src="./images/geographic/turtle.jpg" alt="" class="thumb" onmouseover="setImg('turtle')">
+            <img src="./images/geographic/diver.jpg" alt="" class="thumb" onmouseover="setThisImg(this.src)">
+            <img src="./images/geographic/fish.jpg" alt="" class="thumb" onmouseover="setThisImg(this.src)">
+            <img src="./images/geographic/fox.jpg" alt="" class="thumb" onmouseover="setThisImg(this.src)">
+            <img src="./images/geographic/lion.jpg" alt="" class="thumb" onmouseover="setThisImg(this.src)">
+            <img src="./images/geographic/mouse.jpg" alt="" class="thumb" onmouseover="setThisImg(this.src)">
+            <img src="./images/geographic/sunset.jpg" alt="" class="thumb" onmouseover="setThisImg(this.src)">
+            <img src="./images/geographic/turtle.jpg" alt="" class="thumb" onmouseover="setThisImg(this.src)">
         </div>
         <div class="content">
             <img src="./images/geographic/bear.jpg" class="view">

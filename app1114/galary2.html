@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 100%;
+            max-width: 700px;
+            height: 600px;
+            background-color: rgb(221, 224, 231);
+            margin: auto;
+        }
+        .aside1{
+            width: 100px;
+            height: 600px;
+            float: left;
+        }
+        .aside1 img{
+            width: 90px;
+            height: 61px;
+            margin-left: 5px;
+            margin-top: 5px;
+            display: block;
+            /*
+                이미지들 사이에 margin을 준 적이 없는데도 간격이 생겨 보이는 이유는 바로 img 태그가 인라인 요소(inline element)이기 때문이야.
+                ✔ 원인 1 — 인라인 요소 특성 (inline 요소)
+                img는 기본적으로 inline 요소라서,
+                HTML에서 inline 요소들은 글자처럼 취급돼.
+                display:block; img를 block 요소로 바꾸기
+            */
+        }
+        .content{
+            width: 600px;
+            height: 600px;
+            background-color: rgb(197, 201, 212);
+            float: right;
+            /* text-align: center; 이것도 사실상 수평 가운데 정렬이라 flex를 배우는 수밖에 없다.*/
+        }
+        .content img{
+            margin-top: 25px;
+            margin-left: 25px;
+            width: 550px;
+            height: 550px;
+            display: block;
+            /* text-align: center;  이건 소용이 없다. text-align은 부모 요소가 가진 속성이다.*/
+        }
+    </style>
+
+    <script>
+        function setImg(imageName) {
+            let content = document.querySelector(".content img");
+            content.src = `./images/geographic/${imageName}.jpg`;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="aside1">
+            <img src= ./images/geographic/bear.jpg onmouseover="setImg('bear')"></img>
+            <img src= ./images/geographic/diver.jpg onmouseover="setImg('diver')"></img>
+            <img src= ./images/geographic/cosmos.jpg onmouseover="setImg('cosmos')"></img>
+            <img src= ./images/geographic/fox.jpg onmouseover="setImg('fox')"></img>
+            <img src= ./images/geographic/fish.jpg onmouseover="setImg('fish')"></img>
+            <img src= ./images/geographic/mouse.jpg onmouseover="setImg('mouse')"></img>
+            <img src= ./images/geographic/lion.jpg onmouseover="setImg('lion')"></img>
+            <img src= ./images/geographic/turtle.jpg onmouseover="setImg('turtle')"></img>
+            <img src= ./images/geographic/sunset.jpg onmouseover="setImg('sunset')"></img>
+        </div>
+        <div class="content">
+            <img>
+        </div>
+    </div>
+</body>
+</html>
