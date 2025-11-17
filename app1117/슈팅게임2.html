@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0%;
+        }
+        /*
+            div에 이미지를 배경으로 넣어보기
+            배경은 백그라운드에 적용되기 때문에 이미지간 충돌을 발생시키지 않고, 특별히 옵션을 부여하지 않으면 디폴트가 패턴 반복..(마치 벽지처럼..)
+        */
+        .container{
+            background-image: url(../images/shooting/bg.jpg);
+            width: 100%;
+            height: 576px;
+        }
+
+        #pic{
+            width: 70px;
+            height: 55px;
+            position: absolute;     /* 부모 요소를 기준으로 자신의 위치를 결정하는 속성 absolute */
+            left: 100px;    /* 부모인 container의 꼭지점으로부터 x축*/
+            top: 200px;     /* 부모인 container의 꼭지점으로부터 y축*/
+        }
+
+    </style>
+    <script>
+        let positionX = 100;
+        let positionY = 200;
+        let speed = 50;
+        let bgSpeed = 4;
+        let bgScrollX = 0;
+
+        function move(directionX, directionY){
+            //문서내의 pic이라는 아이디를 갖는 요소의 position을
+
+            positionX += speed * directionX;
+            positionY += speed * directionY;
+            if(positionY > 576 - 55) positionY = 576 - 55;
+
+            document.getElementById("pic").style.left = positionX + "px";
+            document.getElementById("pic").style.top = positionY + "px";
+        }
+
+
+        
+        function bgScroll() {
+            bgScrollX -= bgSpeed;
+            document.querySelector(".container").style.backgroundPosition=`${bgScrollX}px 0px`;
+        }
+
+    </script>
+</head>
+<!-- onload 로드되자마자 실행 -->
+<body onload="setInterval('bgScroll()', 10)">
+    <div class="container">
+        <img src="../images/shooting/plane.png" alt="" id="pic">
+    </div>
+</body>
+</html>
