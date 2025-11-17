@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 600px;
+            height: 550px;
+            background-color: blue;
+        }
+        .header{
+            width: 600px;
+            height: 50px;
+            background-color: red;
+            text-align: center;
+        }
+        .aside{
+            width: 100px;
+            height: 500px;
+            background-color: green;
+            float: left;
+        }
+        .aside img{
+            margin-top: 5px;
+            margin-left: 5px;
+            width: 90px;
+            height: 50px;
+            display: block;
+        }
+        .content{
+            width: 500px;
+            height: 500px;
+            float: right;
+        }
+    </style>
+    <script>
+        let photoArr=['bear', 'cosmos', 'diver', 'fish', 'fox', 'lion', 'mouse', 'sunset', 'turtle'];
+        let index = 0;
+        let prevIndex = 0;
+
+        let selectPic = document.querySelector(`.aside img:nth-child(${index + 1})`);
+        selectPic.style.opacity = 0.5;
+
+        function setImg(i) {
+            index = i;
+
+            selectPic = document.querySelector(`.aside img:nth-child(${prevIndex + 1})`);
+            selectPic.style.opacity = 1;
+
+            prevIndex = index;
+            
+            selectPic = document.querySelector(`.aside img:nth-child(${index + 1})`);
+            selectPic.style.opacity = 0.5;
+
+            pic = document.querySelector(".content");
+            pic.src = `../images/geographic/${photoArr[index]}.jpg`;
+        }
+
+        function moveImg(sign) {
+            let content = document.querySelector(".content");
+            index += sign;
+            if(index < 0) index = 8;
+            if(index > 8) index = 0;
+            //시각화 - 문서내의 큰 이미지의 경로를 현재 배열값으로 바꾸자!
+            content.src = `../images/geographic/${photoArr[index]}.jpg`; //js가 css의 선택자를 이용하여 문서에 접근하
+            
+            selectPic = document.querySelector(`.aside img:nth-child(${prevIndex + 1})`);
+            selectPic.style.opacity = 1;
+
+            prevIndex = index;
+
+            selectPic = document.querySelector(`.aside img:nth-child(${index + 1})`);
+            selectPic.style.opacity = 0.5;
+        }
+
+        function capturePic(index, opacity) {
+            selectPic = querySelector(`.aside img:nth-child(${index + 1})`);
+            selectPic.style.opacity = opacity;
+        }
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <button onclick="moveImg(-1)">이전</button>
+            <button onclick="moveImg(1)">다음</button>
+        </div>
+        <div class="aside">
+            <img src="../images/geographic/bear.jpg" onclick="setImg(0)">
+            <img src="../images/geographic/cosmos.jpg" onclick="setImg(1)">
+            <img src="../images/geographic/diver.jpg" onclick="setImg(2)">
+            <img src="../images/geographic/fish.jpg" onclick="setImg(3)">
+            <img src="../images/geographic/fox.jpg" onclick="setImg(4)">
+            <img src="../images/geographic/lion.jpg" onclick="setImg(5)">
+            <img src="../images/geographic/mouse.jpg" onclick="setImg(6)">
+            <img src="../images/geographic/sunset.jpg" onclick="setImg(7)">
+            <img src="../images/geographic/turtle.jpg" onclick="setImg(8)">
+        </div>
+        <img class="content" src="../images/geographic/bear.jpg" ></img>
+    </div>
+</body>
+</html>
