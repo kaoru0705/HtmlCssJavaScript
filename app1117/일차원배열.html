@@ -1,0 +1,33 @@
+<script>
+    /* 모든 프로그래밍 언어에는 배열이 지원됨 단 표기 형식이 약간씩 틀림 */
+    let arr = ["apple", "banana", "grape"];
+    let car = ["BMW", "AUDI", "Benz"];
+    let skill = ["java", "jsp", "spring"];
+
+    // for(let i = 0; i < skill.length; i++) {
+    //     console.log(skill[i]);
+    // }
+
+    // skill.forEach(element => {
+    //     console.log(element);
+    // });
+
+    let box = [arr, car, skill];
+
+    // for(let i = 0; i < box.length; i++) {
+    //     for(let j = 0; j < box[i].length; j++) {
+    //         console.log(box[i][j]);
+    //     }
+    // }
+
+    // box.forEach(element => element.forEach(e => console.log(e)));
+
+    box.forEach(arrElement => arrElement.sort().forEach(e => console.log(e)));
+    // 문자는 localeCompare로 비교 or sort.reverse();
+    // java는 compareTo()였다. 문자면 b - a로 비교해도 된다. javascript는 문자가 없고 전부 문자열이다.
+    box.forEach(arrElement => arrElement.sort((a, b)=> b.localeCompare(a)).forEach(e => console.log(e)));
+    box.forEach(arrE => arrE.sort().reverse().forEach(e => console.log(e)));
+
+
+
+</script>

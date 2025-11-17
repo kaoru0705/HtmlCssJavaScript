@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button
+        ondblclick="console.log('더블클릭했어?');"
+        onmouseover="console.log('올렸어?');"
+        onmouseout="console.log('내렸어?');"
+        >
+        나버튼
+    </button>
+    <input type="text" onfocus="this.value='커서 올렸네?'" onblur="this.style.background='yellow'">
+    <!-- 
+        select의 선택된 기존 값에서 다른 값으로 바뀌면 발생하는 이벤트에 반응하는 핸들러
+        이벤트 vs 이벤트 핸들러
+        이벤트: 발생하는 사건의 이름(click, change, focus)
+        이벤트 핸들러: 이벤트가 발생했을 때의 처리자(공통점 접두어로 ~~할때의 의미를 갖는 on이 붙음)
+    -->
+    <select onchange="console.log('선택을 바꿨어?');">
+        <option value="naver">네이버</option>
+        <option value="kakao">카카오</option>
+        <option value="google">구글</option>
+    </select>
+</body>
+</html>
