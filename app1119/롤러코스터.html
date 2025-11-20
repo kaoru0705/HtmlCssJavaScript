@@ -51,8 +51,8 @@
             // java.util.List는 동적 요소 추가 시 add() 메서드를 사용하지만, js는 배열에 동적으로 요소를 추가할 수 있고
             // 이때 사용하는 메서드가 바로 push()이다!!
             let pos = [x, y];
-            posList.push(pos);
-            //posList.push(new Array([x, y]));
+            //posList.push(pos);
+            posList.push(new Array(x, y));
 
             document.querySelector(".aside").innerText = txt;
             // 이 함수를 호출할 때마다, div 요소를 동적(=runtime 실행 시)으로 생성하여 content div 화면에 부착!!
