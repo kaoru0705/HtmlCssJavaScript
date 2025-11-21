@@ -8,12 +8,12 @@
 </head>
 <body>
     <script>
-        function getDetail(apple) {
-            alert(apple);
-        }
         let fruit = "banana";
+        function getDetail(fruit) {
+            alert(fruit);
+        }
 
-        document.body.innerHTML="<h1 onClick = \"getDetail(\""+fruit+"\")\"> 나 눌러봐 </h1>";
+        document.body.innerHTML="<h1 onClick=\"getDetail('PineApple')\"> 나 눌러봐 </h1>";
     </script>
 </body>
 </html>

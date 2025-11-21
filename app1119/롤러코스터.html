@@ -41,8 +41,9 @@
         let txt=``;     // 문자열을 누적할 변수
         let img;        // 다른 함수에서도 접근하기 위해, 전역변수로 빼놓았다.
         let i = 0;
-        let degree = 0;
-        const OFFSET = 20;
+        let offsetX = 0;
+        let offsetY = 0;
+
         const INNITIALPOSX = 50;
         const INITIALPOSY = 100;
 
@@ -82,8 +83,7 @@
         function init() {
             // 프로그래밍적으로 동적으로 생성하려면 createElement() 메서드 사용해야 함.
             img = document.createElement("img");
-            img.src = "../images/penguin.png";
-            img.style.width = 40 + "px";
+            img.src = "../images/rollercoasterCart.png";
             // html 태그요소는 개발자가 특별히 position을 명시하지 않으며 디폴트가 static이므로,
             // left, top이 적용되지 않으므로 왼쪽 상단을 기준으로 부착된다..
             // 따라서 위치를 자유롭게 하고 싶다면 개발자는 css의 position을 명시할 수 있다.
@@ -93,24 +93,37 @@
             img.style.position = "absolute";
             img.style.left = INNITIALPOSX + "px";
             img.style.top = INITIALPOSY + "px";
-
+            img.style.width = 60 + "px";
+            offsetX = img.width / 2;
+            offsetY = img.height / 2;
 
             //부모 요소를 content로 두고, 그 안에 자식으로 부착
             document.querySelector(".content").appendChild(img);
         }
         // 문서 내의 content 영역안에 존재하는 마리오 이미지의 위치를 누적된 좌표를 대상으로
         // 순서대로 접근해보자
+        function sizeWithoutPX(str) {
+            return Number.parseInt(str.substring(0, str.lastIndexOf("p")));
+        }
+
         function manual() {
             if(i == posList.length) return;
-            img.style.left = posList[i][0] - OFFSET + "px";
-            img.style.top = posList[i][1] - OFFSET + "px";
-            if(i == 0) ;
             
+            let directionX = posList[i][0] - (sizeWithoutPX(img.style.left) + offsetX);
+            let directionY = posList[i][1] - (sizeWithoutPX(img.style.top) + offsetY);
+            let sign = directionY < 0 ? -1 : 1;
+            let radian =  Math.acos(directionX / (Math.sqrt(Math.pow(directionX, 2) + Math.pow(directionY, 2))));
+            let degree = radian * (180 / Math.PI) * sign;
+            console.log("directionX " + directionX);
+            console.log("directionY " + directionY);
+            console.log("radian " + radian);
+            console.log("degree " + degree);
             //let angle = 
-
-            degree += 90;
+            
             img.style.transform = `rotate(${degree}deg)`;
-
+            
+            img.style.left = posList[i][0] - offsetX + "px";
+            img.style.top = posList[i][1] - offsetY + "px";
             i++;
         }
         function auto() {
