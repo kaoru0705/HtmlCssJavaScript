@@ -61,17 +61,17 @@
             tag += "<table border='1px' width=;'100%'>";
             tag += "<thead>";
             tag += "<tr>";
-            tag+="<th>이름</th>";
-            tag+="<th>이메일</th>";
-            tag+="<th>직업</th>";
+            tag +="<th>이름</th>";
+            tag +="<th>이메일</th>";
+            tag +="<th>직업</th>";
             tag += "</tr>";
             tag += "</thead>";
             tag += "<tbody>";
             for(let member of memberList) {
                 tag += "<tr>";
-                tag+=`<td>${member.name}</td>`;
-                tag+=`<td>${member.email}</td>`;
-                tag+=`<td>${member.job}</td>`;
+                tag +=`<td>${member.name}</td>`;
+                tag +=`<td>${member.email}</td>`;
+                tag +=`<td>${member.job}</td>`;
                 tag += "</tr>";
             }
             
