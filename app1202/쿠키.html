@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            쿠키란?
+                - 브라우저가 저장한 문자열 데이터
+            
+            쿠키의 유형
+                - 2가지 분류의 기준은 쿠키 생성 시 유효기간을 지정한 (expire/ max-age) 를 영구적 쿠키
+                반대의 경우엔 세션쿠키(브라우저 프로세스가 종료되면 자동으로 삭제)
+
+                1) 세션쿠키 - 저장소는 메모리이다.(브라우저 프로세스 종료 시 사라짐)
+                2) 영구적 쿠키 - 저장소는 디스크이다.
+            
+            쿠키의 데이터 형식
+                - 쿠키에 넣는 모든 데이터는 문자열로 들어가 버린다.. 따라서 쿠키에 들어간 특정 데이터를 추출하려면
+                String 객체의 메서드 등을 활용..
+        */
+       document.cookie="name=동훈; max-age=2400";
+       document.cookie="email=daum; max-age=2400";
+
+       let str = document.cookie.split("; ");
+       let name = str[0].substring(str[0].indexOf("=")+1, str[0].length);
+       console.log(name);
+
+       function getCookie(key) {
+           let arr = document.cookie.split("; ");
+
+            for(let i = 0; i < arr.length; i++) {
+                let kv = arr[i].split("=");
+                if(kv[0] == key) {
+                    return kv[1];
+                }
+            }
+        }
+
+        // 좀 더 짧고 세련된 방식
+        /*
+            선언적 프로그래밍 - 예를 들어 반복문을 수행 시 개발자로 하여금 반복의 과정을 제어하지 말고,
+                            오히려 무엇을 할지에 집중할 수 있도록 지원하는 프로그래밍 방식..
+                            전통적 방식은 반복문 수해 시 개발자 몇부터 ~ 몇까지 돌려라...
+                            선언적 프로그래밍 방식에서는 개발자가 프로그래밍 언어에서 반복해라!!
+            함수형 프로그래밍 - 원본 데이터를 건드리지 않음.. 원본 데이터를 훼손시키지 말자
+                            배열 등 새로운 데이터를 반환하여 처리..(원본을 직접 수정하지 않음)
+            고차함수형 프로그래밍 - 매개변수로 함수도 가능한 함수정의법
+        */
+        function getCookie2(key){
+            return (document.cookie.split("; ")
+                .find(row=>row.startsWith(key))
+                .split("=")[1]
+            );
+        }
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
