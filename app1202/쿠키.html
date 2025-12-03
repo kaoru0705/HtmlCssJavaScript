@@ -27,17 +27,7 @@
        let name = str[0].substring(str[0].indexOf("=")+1, str[0].length);
        console.log(name);
 
-       function getCookie(key) {
-           let arr = document.cookie.split("; ");
-
-            for(let i = 0; i < arr.length; i++) {
-                let kv = arr[i].split("=");
-                if(kv[0] == key) {
-                    return kv[1];
-                }
-            }
-        }
-
+        
         // 좀 더 짧고 세련된 방식
         /*
             선언적 프로그래밍 - 예를 들어 반복문을 수행 시 개발자로 하여금 반복의 과정을 제어하지 말고,
@@ -48,12 +38,6 @@
                             배열 등 새로운 데이터를 반환하여 처리..(원본을 직접 수정하지 않음)
             고차함수형 프로그래밍 - 매개변수로 함수도 가능한 함수정의법
         */
-        function getCookie2(key){
-            return (document.cookie.split("; ")
-                .find(row=>row.startsWith(key))
-                .split("=")[1]
-            );
-        }
 
         
     </script>
