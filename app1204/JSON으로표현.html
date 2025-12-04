@@ -1,0 +1,18 @@
+<script>
+    //let user = "{\"id\": \"batman\",\"name\": \"철수\",\"age\": 30}"
+    //console.log(user);
+
+    /*객체 리터럴을 JSON 문자열로 쉽게 바꾸는 방법 */
+    let user = {
+        id: "batman",
+        name: "철수",
+        age: 30
+    };
+    
+    // 객체를 --> JSON로 자동변환
+    let data = JSON.stringify(user);
+
+    // 문자열에 불과한 JSON을 다시 객체 리터럴로 변환
+    let obj = JSON.parse(data);
+
+</script>
